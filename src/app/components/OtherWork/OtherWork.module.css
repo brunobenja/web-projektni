@@ -1,0 +1,60 @@
+.otherWorkContainer {
+  margin-top: 5em;
+}
+
+.otherWorkTitle {
+  font-size: 4em;
+  font-weight: 300;
+  padding-left: 0.5em;
+  padding-bottom: 0.2em;
+}
+
+.otherWork .work {
+  padding: 20px 0 20px 2em;
+  border-top: #000 1px solid;
+}
+
+.workLast {
+  padding-bottom: 20px;
+  padding-left: 2em;
+  border-bottom: #000 1px solid;
+}
+
+.otherWork .work:hover,
+.otherWork .work:hover h2 {
+  background-color: lightgray;
+  transition: background-color 1s ease;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.collapsible:hover,
+.collapsible:hover h1 {
+  background-color: lightgray;
+}
+
+.content {
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  background-color: #f9f9f9;
+  padding: 0 18px;
+}
+
+.show {
+  max-height: 500px; /* Adjust this value based on your content height */
+}
+
+.work {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.work h2 {
+  margin: 0;
+}
