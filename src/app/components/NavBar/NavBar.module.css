@@ -2,28 +2,27 @@
 .links li {
   text-decoration: none;
   list-style: none;
-  color: black;
+  color: var(--foreground);
 }
 .nav_container {
-  background-color: var(--background);
   position: fixed;
   width: 100%;
-  height: 50px;
-  top: 0;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  z-index: 100;
-  border-bottom: 2px solid black;
+  z-index: 1000; /* Ensure the navbar is on top */
+  top: 0;
+
+  background-color: var(--background); /* Ensure the background color is set */
+  padding: 1em 0; /* Add some padding for better visibility */
+  border-bottom: 2px solid var(--foreground);
 }
 
 .nav_container .logo {
   width: 50px;
   height: 50px;
-  color: black;
-  padding-left: 1em;
+  margin-left: 1em;
   display: block;
   z-index: 200;
 }
@@ -45,6 +44,21 @@
   text-decoration: underline;
 }
 
+.theme_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme_button img {
+  width: 24px;
+  height: 24px;
+}
+
 /*-------------nav-mobile----------------------*/
 @media (min-width: 0px) and (max-width: 768px) {
   .nav {
@@ -54,48 +68,6 @@
   .nav_container .logo {
     display: block;
     z-index: 200;
-  }
-
-  .hamburger_button {
-    display: block;
-    cursor: pointer;
-    margin-right: 2%;
-    z-index: 100;
-    width: 50px;
-    height: auto;
-    color: black;
-  }
-  .nav_mobile.show {
-    display: flex;
-  }
-  .nav_mobile {
-    display: none;
-    z-index: 99;
-    flex-direction: row;
-    align-self: flex-start;
-  }
-  .nav_mobile .links {
-    display: block;
-    padding: 5%;
-    font-size: 2em;
-    line-height: 2.5em;
-  }
-
-  .nav_mobile {
-    background-color: var(--background);
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    padding-top: 10rem;
-    align-items: left;
-    text-align: left;
-    color: white;
-    transition: 5s ease-in-out;
-    -webkit-transition: 5s ease-in-out;
-    -moz-transition: 5s ease-in-out;
-    -ms-transition: 5s ease-in-out;
-    -o-transition: 5s ease-in-out;
-    z-index: 100;
   }
 }
 

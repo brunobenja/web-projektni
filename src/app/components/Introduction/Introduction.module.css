@@ -1,0 +1,41 @@
+.links a,
+.links li {
+  text-decoration: none;
+  list-style: none;
+  color: var(--foreground);
+}
+
+.introduction {
+  position: relative;
+  margin-top: 50px;
+  z-index: 1;
+}
+.introduction h1 {
+  font-size: 11rem;
+  margin-bottom: -60px;
+  margin-left: 10px;
+}
+.introduction h2 {
+  font-size: 6rem;
+  margin-left: 15px;
+}
+.introduction h3 {
+  margin-top: -20px;
+  font-size: 5rem;
+  margin-left: 15px;
+}
+.introduction .roundNumbers {
+  font-size: 6rem;
+  margin-right: -25px;
+  margin-left: 15px;
+}
+
+.introduction .intro_list {
+  font-size: 4rem;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  transition: border-color 0.5s ease-in-out;
+}
+.introduction .intro_list:hover {
+  border-color: var(--foreground);
+}

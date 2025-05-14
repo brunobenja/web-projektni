@@ -2,27 +2,35 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import FeaturedWork from "./components/FeaturedWork/FeaturedWork";
+import { ThemeProvider } from "./context/ThemeContext";
+
 import OtherWork from "./components/OtherWork/OtherWork";
+import Introduction from "./components/Introduction/Introduction";
+import Banner from "./components/banner/banner";
 export default function Home() {
   return (
-    <div>
-      <main>
+    <ThemeProvider>
+      <div>
         <NavBar />
-        <section id="top"></section>
-        <Image
-          src="/assets/images/bb-design-black.png"
-          alt="bb-design"
-          priority
-          width={500}
-          height={500}
-        />
-        <section id="work">
-          <FeaturedWork />
-        </section>
-        <OtherWork />
-        <section id="contact"></section>
-      </main>
-      <footer className={styles.footer}></footer>
-    </div>
+        <main>
+          <section id="introduction">
+            <Introduction />
+          </section>
+
+          <section id="banner">
+            <Banner />
+          </section>
+          <section id="featured_work">
+            <FeaturedWork />
+          </section>
+          <section id="other_work">
+            <OtherWork />
+          </section>
+          <section id="contact"></section>
+        </main>
+
+        <footer className={styles.footer}></footer>
+      </div>
+    </ThemeProvider>
   );
 }

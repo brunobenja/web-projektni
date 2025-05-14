@@ -1,9 +1,18 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
+
+import Image from "next/image";
 import styles from "./NavBar.module.css"; // Import the CSS Module
 
 const NavBar = () => {
-  const [showContent, setShowContent] = useState(false);
+  const { isDarkMode, setIsDarkMode } = useTheme(); // Ensure ThemeProvider wraps this component
+  const [showContent, setShowContent] = useState(false); // Add state for mobile navigation
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const handleLinkClick = (e, targetId) => {
     e.preventDefault(); // Prevent default link behavior
@@ -20,19 +29,20 @@ const NavBar = () => {
   return (
     <div className={styles.nav_container}>
       <a href="#top">
-        <span className={styles.logo}>
-          <svg
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 4h14v2h2v6h-8v2h6v2h-4v2h-2v2H2V8h2V6h2V4zm2 6h2V8H8v2z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
+        <Image
+          src={
+            isDarkMode
+              ? "/assets/images/logo-white.png"
+              : "/assets/images/logo.png"
+          }
+          alt="logo"
+          width={50}
+          height={50}
+          className={styles.logo}
+        />
       </a>
+
+      {/* Desktop Navigation */}
       <nav className={styles.nav}>
         <ul className={styles.links}>
           <li>
@@ -58,9 +68,27 @@ const NavBar = () => {
               [contact]
             </a>
           </li>
+          <li>
+            <button
+              className={styles.theme_button}
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              <Image
+                src={
+                  isDarkMode
+                    ? "/assets/images/light_mode.png"
+                    : "/assets/images/dark_mode.png"
+                }
+                alt="theme"
+                width={20}
+                height={20}
+              />
+            </button>
+          </li>
         </ul>
       </nav>
-
+      {/* Mobile Navigation */}
       <nav className={`${styles.nav_mobile} ${showContent ? styles.show : ""}`}>
         <ul className={styles.links}>
           <li className={styles.nav_link}>
@@ -101,7 +129,7 @@ const NavBar = () => {
           >
             <path
               d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm16 5H4v2h16v-2z"
-              fill="currentColor"
+              fill="var(--foreground)"
             />
           </svg>
         </span>

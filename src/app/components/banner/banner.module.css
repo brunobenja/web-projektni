@@ -1,0 +1,18 @@
+.banner {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex; /* Use flexbox to align items side by side */
+  justify-content: space-between; /* Add space between the images */
+  align-items: center; /* Align images vertically in the center */
+  width: 50%; /* Set the width of the banner container */
+  margin: 0 auto; /* Center the banner horizontally */
+}
+
+.bannerLeft,
+.bannerRight {
+  position: relative; /* Required for the Image component */
+}
+
+.bannerImage {
+  object-fit: contain; /* Ensure the image fits within its container */
+}
