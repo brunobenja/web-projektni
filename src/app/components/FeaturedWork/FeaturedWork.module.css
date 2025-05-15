@@ -1,0 +1,94 @@
+.featuredWorkContainer {
+  padding: 50px 20px;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-align: center;
+}
+
+.featuredWorkTitle {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for the layout */
+
+  gap: 0px; /* Space between grid items */
+  position: relative;
+}
+
+/* General styles for project cards */
+.projectCard {
+  position: relative;
+  overflow: visible; /* Allow the title to be fully visible */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  text-align: left; /* Keep the title aligned to the left */
+  display: flex;
+  flex-direction: column; /* Stack image and title vertically */
+  align-items: stretch; /* Ensure the title spans the full width */
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--foreground);
+}
+
+.projectImage {
+  width: 100%; /* Make the image fill the card width */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensure the image covers the card without distortion */
+}
+
+.projectInfo {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: var(--foreground);
+  padding: 10px 0px;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  margin-top: 10px; /* Add spacing between the image and the title */
+  color: var(--foreground);
+  /* Add padding to align the title slightly inward */
+  text-align: left; /* Align the title text to the left */
+  white-space: normal; /* Allow the title to wrap to the next line if needed */
+  overflow: visible; /* Ensure the title is not cropped */
+}
+
+/* Custom positioning for staggered layout with different sizes */
+.projectsGrid > :nth-child(1) {
+  margin-right: 300px;
+  margin-bottom: auto;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: auto; /* Larger height for the first card */
+}
+
+.projectsGrid > :nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin-left: 10px;
+  height: auto; /* Smaller height for the second card */
+}
+
+.projectsGrid > :nth-child(3) {
+  margin-top: 50px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin-right: 10px;
+  height: auto; /* Medium height for the third card */
+}
+
+.projectsGrid > :nth-child(4) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-top: 300px;
+  margin-left: 200px;
+  height: auto;
+  align-self: start; /* Ensure the item respects its height */
+}

@@ -2,11 +2,11 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "./components/NavBar/NavBar";
 import FeaturedWork from "./components/FeaturedWork/FeaturedWork";
-import { ThemeProvider } from "./context/ThemeContext";
 
 import OtherWork from "./components/OtherWork/OtherWork";
 import Introduction from "./components/Introduction/Introduction";
 import Banner from "./components/banner/banner";
+import { ThemeProvider } from "./context/ThemeContext";
 export default function Home() {
   return (
     <ThemeProvider>
