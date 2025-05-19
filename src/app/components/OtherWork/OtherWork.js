@@ -3,43 +3,48 @@ import { useState } from "react";
 import styles from "./OtherWork.module.css"; // Import the CSS Module
 
 const OtherWork = () => {
-  const [showContent, setShowContent] = useState(false);
-
-  const toggleContent = () => {
-    setShowContent(!showContent);
-  };
+  const projects = [
+    {
+      title: "The Rolling Stones",
+      imageUrl: "/assets/images/other_projects/RollingStones.png",
+      link: "https://example.com/hive",
+    },
+    {
+      title: "Bob Dylan ",
+      imageUrl: "/assets/images/other_projects/BobDylan.png",
+      link: "https://example.com/beacon",
+    },
+    {
+      title: "David Bowie",
+      imageUrl: "/assets/images/other_projects/DavidBowie.png",
+      link: "https://example.com/ready2stack",
+    },
+    {
+      title: "Santana",
+      imageUrl: "/assets/images/other_projects/Santana.png",
+      link: "https://example.com/ready2stack",
+    },
+  ];
 
   return (
     <div className={styles.otherWorkContainer}>
-      <button onClick={toggleContent} className={styles.collapsible}>
-        <h1 className={styles.otherWorkTitle}>other work&#8595</h1>
-      </button>
-      {showContent && (
-        <div className={styles.content}>
-          <div className={styles.otherWork}>
-            <a href="https://example.com/" target="_blank">
-              <div className={styles.work}>
-                <h2>other work 1</h2>
+      <h1 className={styles.otherWorkTitle}>other work</h1>
+      <ul className={styles.projectList}>
+        {projects.map((project, index) => (
+          <li key={index} className={styles.projectItem}>
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <div className={styles.projectContent}>
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className={styles.projectImage}
+                />
+                <h2 className={styles.projectTitle}>{project.title}</h2>
               </div>
             </a>
-            <a href="https://example.com/" target="_blank">
-              <div className={styles.work}>
-                <h2>other work 2</h2>
-              </div>
-            </a>
-            <a href="https://example.com/" target="_blank">
-              <div className={styles.work}>
-                <h2>other work 3</h2>
-              </div>
-            </a>
-            <a href="https://example.com/" target="_blank">
-              <div className={`${styles.work} ${styles.last}`}>
-                <h2>other work 4</h2>
-              </div>
-            </a>
-          </div>
-        </div>
-      )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import NavBar from "./components/NavBar/NavBar";
-import FeaturedWork from "./components/FeaturedWork/FeaturedWork";
-
-import OtherWork from "./components/OtherWork/OtherWork";
 import Introduction from "./components/Introduction/Introduction";
+import FeaturedWork from "./components/FeaturedWork/FeaturedWork";
+import OtherWork from "./components/OtherWork/OtherWork";
+import Contact from "./components/Contact/Contact";
 import Banner from "./components/banner/banner";
 import { ThemeProvider } from "./context/ThemeContext";
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <div>
         <NavBar />
         <main>
-          <section id="introduction">
+          <section id="about">
             <Introduction />
           </section>
 
@@ -23,10 +23,12 @@ export default function Home() {
           <section id="featured_work">
             <FeaturedWork />
           </section>
-          <section id="other_work">
+          <section id="other">
             <OtherWork />
           </section>
-          <section id="contact"></section>
+          <section id="contact" className={styles.contact}>
+            <Contact />
+          </section>
         </main>
 
         <footer className={styles.footer}></footer>

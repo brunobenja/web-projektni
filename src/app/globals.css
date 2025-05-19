@@ -76,3 +76,7 @@ body.light-mode {
   --background: rgba(237, 237, 237, 1);
   --foreground: rgba(10, 10, 10, 1);
 }
+
+html {
+  scroll-padding-top: 80px; /* Adjust 80px to your navbar's height */
+}

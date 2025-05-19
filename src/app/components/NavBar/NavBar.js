@@ -51,16 +51,16 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="#work" onClick={(e) => handleLinkClick(e, "work")}>
+            <a
+              href="#featured_work"
+              onClick={(e) => handleLinkClick(e, "featured_work")}
+            >
               [work]
             </a>
           </li>
           <li>
-            <a
-              href="#other-endeavors"
-              onClick={(e) => handleLinkClick(e, "other-endeavors")}
-            >
-              [other endeavors]
+            <a href="#other" onClick={(e) => handleLinkClick(e, "other")}>
+              [other]
             </a>
           </li>
           <li>

@@ -5,56 +5,59 @@
 .otherWorkTitle {
   font-size: 4em;
   font-weight: 300;
-  padding-left: 0.5em;
+  padding-left: 20px;
   padding-bottom: 0.2em;
 }
 
-.otherWork .work {
-  padding: 20px 0 20px 2em;
-  border-top: #000 1px solid;
-}
-
-.workLast {
-  padding-bottom: 20px;
-  padding-left: 2em;
-  border-bottom: #000 1px solid;
-}
-
-.otherWork .work:hover,
-.otherWork .work:hover h2 {
-  background-color: lightgray;
-  transition: background-color 1s ease;
-}
-
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  text-align: left;
-}
-
-.collapsible:hover,
-.collapsible:hover h1 {
-  background-color: lightgray;
-}
-
-.content {
-  overflow: hidden;
-  transition: max-height 0.5s ease-out;
-  background-color: #f9f9f9;
-  padding: 0 18px;
-}
-
-.show {
-  max-height: 500px; /* Adjust this value based on your content height */
-}
-
-.work {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.work h2 {
+.projectList {
+  list-style: none;
+  padding: 0;
   margin: 0;
+}
+
+.projectItem {
+  position: relative;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--foreground);
+  overflow: hidden;
+}
+
+.projectContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for text movement */
+  position: relative;
+}
+
+.projectTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 20px;
+  flex: 1;
+  z-index: 2; /* Ensure the title is above the image */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for text movement */
+}
+
+.projectImage {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-120%, -50%); /* Start further off-screen */
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  z-index: 1; /* Ensure the image is behind the title */
+}
+
+.projectItem:hover .projectImage {
+  transform: translate(0, -50%); /* Slide into view */
+  opacity: 1; /* Fade in */
+}
+
+.projectItem:hover .projectTitle {
+  transform: translateX(150px); /* Move the text to the right */
 }
